@@ -1,0 +1,12 @@
+sudo apt install git subversion build-essential gawk unzip libncurses5-dev zlib1g-dev libssl-dev
+git clone https://github.com/freifunk-gluon/gluon.git -b v2015.1.2
+cd gluon
+git checkout status-page
+git https://github.com/ffruhr/site-ffel.git site
+make update
+make -j 4 GLUON_TARGET=ar71xx-generic
+make -j 4 GLUON_TARGET=ar71xx-nand
+make -j 4 GLUON_TARGET=mpc85xx-generic
+make -j 4 GLUON_TARGET=x86-64
+make -j 4 GLUON_TARGET=x86-generic
+make -j 4 GLUON_TARGET=x86-kvm_guest
